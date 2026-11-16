@@ -39,13 +39,14 @@ Cas d'étude : un système de gestion de bibliothèque (emprunts, réservations,
 ```bash
 ./scripts/install_hooks.sh        # active le hook pre-commit (une fois après le clone)
 ./scripts/check_adr.sh            # valide tous les ADR
+./scripts/check_links.sh          # verifie les liens entre ADR
 python3 scripts/gen_adr_index.py  # régénère doc/adr/INDEX.md
 ```
 
 Les vues ArchiMate s'ouvrent avec [Archi](https://www.archimatetool.com/) (version ≥ 4.9) :
 `File > Open > doc/archimate/bibliotheque.archimate`.
 
-## Les cinq décisions
+## Les décisions
 
 | # | Décision | Choix retenu |
 |---|----------|--------------|
@@ -54,6 +55,7 @@ Les vues ArchiMate s'ouvrent avec [Archi](https://www.archimatetool.com/) (versi
 | 3 | Concurrence sur les réservations | Verrouillage optimiste |
 | 4 | Notifications | File de messages asynchrone (RabbitMQ) |
 | 5 | **Sécurité** : API de prêt | OAuth2 + rate limiting |
+| 6 | Audit des données personnelles | Journal d'audit centralisé |
 
 Les deux vues ArchiMate reprennent mot pour mot le vocabulaire des ADR 2 et 5
 (traçabilité ADR ↔ modèle).
